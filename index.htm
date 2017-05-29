@@ -1,0 +1,53 @@
+<html lang="ru-RU">
+<head>
+<title>Ехал грека через реку</title>
+</head>
+<body>
+<style>
+.stdout_c {
+  border: 1px outset black;
+  background: #fff;
+  width: 80%;
+  height: 80%;
+}
+</style>
+<center>
+  <label>Введите объект: </label>
+  <input class="stdin" />
+  <button>
+    Го
+  </button>
+  <br/>
+  <br/>
+  <div class="stdout_c">
+    <em class="stdout">Здесь будет результат</em>
+  </div>
+</center>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" type="text/javascript">
+</script>
+<script type="text/javascript">
+String.prototype.replaceAt = function(index, replacement) {
+  return this.substr(0, index) + replacement + this.substr(index + replacement.length);
+}
+$("button").click(function() {
+  var vowels = ['й', 'е', 'ы', 'а', 'о', 'э', 'я', 'и', 'ю'];
+  var initial = document.getElementsByClassName("stdin")[0].value;
+  var forms = [];
+  var modified = initial;
+  modified = initial.replaceAt(initial.length - 1, "у");
+  forms.push(modified);
+  modified = initial.replaceAt(initial.length - 1, "е");
+  forms.push(modified);
+  modified = initial.replaceAt(initial.length - 1, "");
+  forms.push(modified);
+  if (initial.slice(-1) == "а" || initial.slice(-1) == "о") {
+    result = "Едет " + initial + " через " + forms[0] + ", видит " + initial + " в " + forms[1] + " - " + initial + ".<br/>Сунул " + initial + " в " + forms[0] + " " + forms[0] + ".<br/>" + initial + "," + initial + "," + initial + "," + initial;
+  } else {
+    result = "Едет " + initial + " через " + initial + ", видит " + initial + " в " + initial + " - " + initial + ".<br/>Сунул " + initial + " в " + initial + " " + initial + ".<br/>" + initial + "," + initial + "," + initial + "," + initial;
+  }
+  document.getElementsByClassName("stdout")[0].innerHTML = result;
+});
+
+</script>
+</body>
+</html>
