@@ -15,7 +15,7 @@
 <center>
   <label>Введите объект: </label>
   <input class="stdin" />
-  <button>
+  <button onclick="gen();">
     Го
   </button>
   <br/>
@@ -30,8 +30,7 @@
 String.prototype.replaceAt = function(index, replacement) {
   return this.substr(0, index) + replacement + this.substr(index + replacement.length);
 }
-$("button").click(function() {
-  var vowels = ['й', 'е', 'ы', 'а', 'о', 'э', 'я', 'и', 'ю'];
+function gen() {
   var initial = document.getElementsByClassName("stdin")[0].value;
   var forms = [];
   var modified = initial;
@@ -47,8 +46,7 @@ $("button").click(function() {
     result = "Едет " + initial + " через " + initial + ", видит " + initial + " в " + initial + " - " + initial + ".<br/>Сунул " + initial + " в " + initial + " " + initial + ".<br/>" + initial + "," + initial + "," + initial + "," + initial;
   }
   document.getElementsByClassName("stdout")[0].innerHTML = result;
-});
-
+}
 </script>
 </body>
 </html>
