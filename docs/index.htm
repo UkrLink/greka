@@ -1,0 +1,65 @@
+<!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.2//EN" "http://www.openmobilealliance.org/tech/DTD/xhtml-mobile12.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Ехал грека через реку</title>
+<style type="text/css">
+body {
+  background: #e6ebed;
+}
+.stdout_c {
+  border: 1px outset black;
+  background: #fff;
+  width: 80%;
+  height: 80%;
+}
+</style>
+</head>
+<body>
+<div>
+  <label>Введите объект: </label>
+  <input class="stdin" />
+  <button onclick="gen();">
+    Го
+  </button>
+  <br/>
+  <br/>
+  <div class="stdout_c">
+    <em class="stdout">Здесь будет результат</em>
+  </div>
+</div>
+<p>
+    <a href="https://jigsaw.w3.org/css-validator/check/referer">
+        <img style="border:0;width:88px;height:31px"
+            src="https://jigsaw.w3.org/css-validator/images/vcss-blue"
+            alt="Правильный CSS!" />
+    </a>
+</p>
+<script type="text/javascript">
+String.prototype.replaceAt = function(index, replacement) {
+  return this.substr(0, index) + replacement + this.substr(index + replacement.length);
+}
+function gen() {
+  var initial = document.getElementsByClassName("stdin")[0].value;
+  var forms = [];
+  var modified = initial;
+  modified = initial.replaceAt(initial.length - 1, "у");
+  forms.push(modified);
+  modified = initial.replaceAt(initial.length - 1, "е");
+  forms.push(modified);
+  modified = initial.replaceAt(initial.length - 1, "");
+  forms.push(modified);
+  if (initial.slice(-1) == "а" || initial.slice(-1) == "о") {
+    //<![CDATA[
+    result = "Едет " + initial + " через " + forms[0] + ", видит " + initial + " в " + forms[1] + " - " + initial + ".<br/>Сунул " + initial + " в " + forms[0] + " " + forms[0] + ".<br/>" + initial + "," + initial + "," + initial + "," + initial;
+    //]]>
+  } else {
+    //<![CDATA[
+    result = "Едет " + initial + " через " + initial + ", видит " + initial + " в " + initial + " - " + initial + ".<br/>Сунул " + initial + " в " + initial + " " + initial + ".<br/>" + initial + "," + initial + "," + initial + "," + initial;
+    //]]>
+  }
+  document.getElementsByClassName("stdout")[0].innerHTML = result;
+}
+</script>
+</body>
+</html>
