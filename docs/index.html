@@ -41,9 +41,13 @@ function gen() {
   modified = initial.replaceAt(initial.length - 1, "");
   forms.push(modified);
   if (initial.slice(-1) == "а" || initial.slice(-1) == "о") {
+    //<![CDATA[
     result = "Едет " + initial + " через " + forms[0] + ", видит " + initial + " в " + forms[1] + " - " + initial + ".<br/>Сунул " + initial + " в " + forms[0] + " " + forms[0] + ".<br/>" + initial + "," + initial + "," + initial + "," + initial;
+    //]]>
   } else {
+    //<![CDATA[
     result = "Едет " + initial + " через " + initial + ", видит " + initial + " в " + initial + " - " + initial + ".<br/>Сунул " + initial + " в " + initial + " " + initial + ".<br/>" + initial + "," + initial + "," + initial + "," + initial;
+    //]]>
   }
   document.getElementsByClassName("stdout")[0].innerHTML = result;
 }
