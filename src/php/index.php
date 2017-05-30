@@ -3,6 +3,9 @@
 <head>
 <title>Ехал грека через реку</title>
 <style type="text/css">
+body {
+  background: #e6ebed;
+}
 .stdout_c {
   border: 1px outset black;
   background: #fff;
