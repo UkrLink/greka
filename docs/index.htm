@@ -23,6 +23,8 @@ body {
     Го
   </button>
   <br/>
+  <input id="isNeutral" type="checkbox" /><label>Использовать <strong>сунет</strong> вместо сунул</label>
+  <br/>
   <br/>
   <div class="stdout_c">
     <em class="stdout">Здесь будет результат</em>
@@ -43,6 +45,11 @@ function gen() {
   var initial = document.getElementsByClassName("stdin")[0].value;
   var forms = [];
   var modified = initial;
+  if(document.getElementById("isNeutral").checked) {
+    put="Сунет";
+  } else {
+    put="Сунул";
+  }
   modified = initial.replaceAt(initial.length - 1, "у");
   forms.push(modified);
   modified = initial.replaceAt(initial.length - 1, "е");
@@ -51,11 +58,11 @@ function gen() {
   forms.push(modified);
   if (initial.slice(-1) == "а" || initial.slice(-1) == "о") {
     //<![CDATA[
-    result = "Едет " + initial + " через " + forms[0] + ", видит " + initial + " в " + forms[1] + " - " + initial + ".<br/>Сунул " + initial + " в " + forms[0] + " " + forms[0] + ".<br/>" + initial + "," + initial + "," + initial + "," + initial;
+    result = "Едет " + initial + " через " + forms[0] + ", видит " + initial + " в " + forms[1] + " - " + initial + ".<br/>"+put+" " + initial + " в " + forms[0] + " " + forms[0] + ".<br/>" + initial + "," + initial + "," + initial + "," + initial;
     //]]>
   } else {
     //<![CDATA[
-    result = "Едет " + initial + " через " + initial + ", видит " + initial + " в " + initial + " - " + initial + ".<br/>Сунул " + initial + " в " + initial + " " + initial + ".<br/>" + initial + "," + initial + "," + initial + "," + initial;
+    result = "Едет " + initial + " через " + initial + ", видит " + initial + " в " + initial + " - " + initial + ".<br/>"+put+" " + initial + " в " + initial + " " + initial + ".<br/>" + initial + "," + initial + "," + initial + "," + initial;
     //]]>
   }
   document.getElementsByClassName("stdout")[0].innerHTML = result;
